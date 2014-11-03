@@ -146,11 +146,7 @@ public class Tests {
         node3.nextNode = node4;
         node4.nextNode = node5;
         linkedLists.nthToLastElement(node1, 3); //delete node 2 
-        assertTrue(node1.nextNode.value == 3);
-       
-       
-
-        
+        assertTrue(node1.nextNode.value == 3);     
 	}
 	
 	

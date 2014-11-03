@@ -16,28 +16,17 @@ public class Bits {
      Output: N = 10001010100
      */
 
-    public Integer replaceBitSubstring(int M, int N, int i, int j){
-    	String s = "";
-    	for(int k=0; k<32; k++){
-    		if(k>i && k<j){
-    			s = s+"0";
-    		}
-    		else{
-    			s=s+"1";
-    		}
-    	} 	
-    	//Replaces bits between i and j with 0s
-    	N = N & Integer.parseInt(s, 2);
-    	int shiftAmount = 32 - i;
+    public Integer replaceBitSubstring(int N, int M, int i, int j){
     	
-        for(int k=0; k<32; k++){
-        	if(k>i && k<j){
-        		s = s + 
-        	}
-        	else{
-        		s = s+"1";
-        	}
-        }
+    	//1s up to i
+    	int onesBefore = (1 << i) -1;
+    	//1s after j
+    	int onesAfter = ~0 - ((1 << j)-1);
+    	//make a mask with 0
+    	int mask = onesBefore + onesAfter;
+    	N = N & mask;
+    	M = M << i;
+    	return (N | M);			
     }
 
 }
